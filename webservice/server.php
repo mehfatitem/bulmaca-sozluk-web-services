@@ -1,28 +1,29 @@
-﻿<?php
+<?php
 	include("../createDbObject.php");
 	$postsXml = array();
 	$postsJson = array();
 
 	if(isset($_GET['operand']) && isset($_GET['question']) && isset($_GET['format'])){
 		$operand = $_GET['operand'];
+		
 		$conn =  $db->open();
 		$question = mysqli_real_escape_string($conn , $_GET['question']);
 
 		switch ($operand) {
 			case '1':
-					$condition = " = '".$question."'";
+				$condition = " = '".$question."'";
 				break;
 			case '2':
-					$condition = " like '%".$question."%'";
+				$condition = " like '%".$question."%'";
 				break;
 			case '3':
-					$condition = " like '".$question."%'";
+				$condition = " like '".$question."%'";
 				break;
 			case '4':
-					$condition = " like '%".$question."'";
+				$condition = " like '%".$question."'";
 				break;
 			default:
-					$condition = " = '".$question."'";
+				$condition = " = '".$question."'";
 				break;
 		}
 		$sql = "Select * from question_answer where question ".$condition;
@@ -44,7 +45,7 @@
 			}
 		    $xml = new SimpleXMLElement('<posts/>');
 		    array_walk_recursive($postsXml,array ($xml, 'addChild'));
-			print $xml->asXML();
+		    print $xml->asXML();
 		}	
 	}
 ?>
