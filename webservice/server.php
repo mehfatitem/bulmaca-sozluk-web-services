@@ -26,10 +26,12 @@
 				$condition = " = '".$question."'";
 				break;
 		}
+		
 		$sql = "Select * from question_answer where question ".$condition;
 
 		$query = $db->runSql($sql);
 		$format = strtolower($_GET['format']) == 'json' ? 'json' : 'xml';
+		
 		if($format == 'json') {
 			while($post = mysqli_fetch_assoc($query)){
 				$postsJson[] = $post;
