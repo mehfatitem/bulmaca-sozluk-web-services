@@ -18,7 +18,7 @@
 			foreach($classes as $class) {
 		    	$class_info[] = $class->nodeValue;
 		    	if(!strpos($class->nodeValue , "(adsbygoogle = window.adsbygoogle || []).push({});" ))
-		   			$returnString .= $class->nodeValue."</br>";
+		   		$returnString .= $class->nodeValue."</br>";
 			}
 		}
 		echo $returnString;
