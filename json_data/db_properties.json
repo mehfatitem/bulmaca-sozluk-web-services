@@ -1,0 +1,6 @@
+{
+	"server" : "localhost",
+	"database" : "crossword",
+	"username" : "root",
+	"password" : ""
+}
